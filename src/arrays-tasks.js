@@ -42,7 +42,7 @@ function getIntervalArray(start, end) {
  */
 function sumArrays(arr1, arr2) {
   if (!Array.isArray(arr1) || !Array.isArray(arr2)) {
-    throw new Error('both inputs must be arrays');
+    throw new Error('both inputs must be an arrays');
   }
   const maxLength = Math.max(arr1.length, arr2.length);
 
@@ -66,7 +66,7 @@ function sumArrays(arr1, arr2) {
  */
 function findElement(arr, value) {
   if (!Array.isArray(arr)) {
-    throw new Error('must be array');
+    throw new Error('must be an array');
   }
   return arr.indexOf(value);
 }
@@ -87,7 +87,7 @@ function findElement(arr, value) {
  */
 function findAllOccurrences(arr, item) {
   if (!Array.isArray(arr)) {
-    throw new Error('must be array');
+    throw new Error('must be an array');
   }
   return arr.filter((elem) => elem === item).length;
 }
@@ -106,7 +106,7 @@ function findAllOccurrences(arr, item) {
  */
 function removeFalsyValues(arr) {
   if (!Array.isArray(arr)) {
-    throw new Error('must be array');
+    throw new Error('must be an array');
   }
   return arr.filter((elem) => Boolean(elem));
 }
@@ -123,7 +123,7 @@ function removeFalsyValues(arr) {
  */
 function getStringsLength(arr) {
   if (!Array.isArray(arr)) {
-    throw new Error('must be array');
+    throw new Error('must be an array');
   }
   return arr.map((str) => str.length);
 }
@@ -162,7 +162,7 @@ function getAverage(arr) {
  */
 function isSameLength(arr) {
   if (!Array.isArray(arr)) {
-    throw new Error('input must array');
+    throw new Error('input must an array');
   }
   return arr.every((str) => str.length === arr[0].length);
 }
@@ -180,7 +180,7 @@ function isSameLength(arr) {
  */
 function isValueEqualsIndex(arr) {
   if (!Array.isArray(arr)) {
-    throw new Error('input must be array');
+    throw new Error('input must be an array');
   }
   return arr.some((value, index) => value === index);
 }
@@ -198,7 +198,7 @@ function isValueEqualsIndex(arr) {
  */
 function insertItem(arr, item, index) {
   if (!Array.isArray(arr) || index < 0 || index > arr.length) {
-    throw new Error('input must be array');
+    throw new Error('input must be an array');
   }
   return arr.splice(index, 0, item);
 }
@@ -216,7 +216,7 @@ function insertItem(arr, item, index) {
  */
 function getHead(arr, n) {
   if (!Array.isArray(arr)) {
-    throw new Error('input must be array');
+    throw new Error('input must be an array');
   }
   return arr.slice(0, n);
 }
@@ -254,7 +254,7 @@ function getTail(arr, n) {
  */
 function doubleArray(arr) {
   if (!Array.isArray(arr)) {
-    throw new Error('input must be array');
+    throw new Error('input must be an array');
   }
   return arr.concat(arr);
 }
@@ -272,7 +272,7 @@ function doubleArray(arr) {
  */
 function toStringList(arr) {
   if (!Array.isArray(arr)) {
-    throw new Error('input must be array');
+    throw new Error('input must be an array');
   }
   return arr.join(',');
 }
@@ -291,7 +291,7 @@ function toStringList(arr) {
  */
 function distinct(arr) {
   if (!Array.isArray(arr)) {
-    throw new Error('input must be array');
+    throw new Error('input must be an array');
   }
   return Array.from(new Set(arr));
 }
@@ -336,7 +336,7 @@ function createNDimensionalArray(n, size) {
  */
 function flattenArray(nestedArray) {
   if (!Array.isArray(nestedArray)) {
-    throw new Error('input must be array');
+    throw new Error('input must be an array');
   }
   return nestedArray.flat(999999);
 }
@@ -356,7 +356,7 @@ function flattenArray(nestedArray) {
  */
 function selectMany(arr, childrenSelector) {
   if (!Array.isArray(arr)) {
-    throw new Error('input must be array');
+    throw new Error('input must be an array');
   }
   return arr.flatMap(childrenSelector);
 }
@@ -376,7 +376,7 @@ function selectMany(arr, childrenSelector) {
  */
 function calculateBalance(arr) {
   if (!Array.isArray(arr)) {
-    throw new Error('input must be array');
+    throw new Error('input must be an array');
   }
   return arr.reduce((acc, expence) => acc + (expence[0] - expence[1]), 0);
 }
@@ -395,7 +395,7 @@ function calculateBalance(arr) {
  */
 function createChunks(arr, chunkSize) {
   if (!Array.isArray(arr) || chunkSize <= 0) {
-    throw new Error(' arr must be an array and chunkSize must be > 0.');
+    throw new Error('arr must be an array and chunkSize must be > 0');
   }
 
   const createChunksRecursively = (remainingArray) => {
@@ -428,7 +428,7 @@ function createChunks(arr, chunkSize) {
  */
 function generateOdds(len) {
   if (!Number.isInteger(len)) {
-    throw new Error('input must be number');
+    throw new Error('input must be a number');
   }
   return Array.from({ length: len }, (_, value) => value * 2 + 1);
 }
@@ -447,7 +447,7 @@ function generateOdds(len) {
  */
 function getElementByIndices(arr, indices) {
   if (!Array.isArray(arr) || !Array.isArray(indices)) {
-    throw new Error('input must be array');
+    throw new Error('input must be an array');
   }
   return indices.reduce((acc, current) => acc[current], arr);
 }
@@ -466,7 +466,7 @@ function getElementByIndices(arr, indices) {
  */
 function getFalsyValuesCount(arr) {
   if (!Array.isArray(arr)) {
-    throw new Error('input must be array');
+    throw new Error('input must be an array');
   }
   return arr.filter((value) => !value).length;
 }
@@ -491,7 +491,7 @@ function getFalsyValuesCount(arr) {
  */
 function getIdentityMatrix(n) {
   if (!Number.isInteger(n)) {
-    throw new Error('input must be number');
+    throw new Error('input must be a number');
   }
   return Array.from({ length: n }, (_, row) =>
     Array.from({ length: n }, (__, col) => (row === col ? 1 : 0))
@@ -511,7 +511,7 @@ function getIdentityMatrix(n) {
  */
 function getIndicesOfOddNumbers(numbers) {
   if (!Array.isArray(numbers)) {
-    throw new Error('input must be array');
+    throw new Error('input must be an array');
   }
   return numbers
     .map((number, index) => (number % 2 !== 0 ? index : undefined))
@@ -530,7 +530,7 @@ function getIndicesOfOddNumbers(numbers) {
  */
 function getHexRGBValues(arr) {
   if (!Array.isArray(arr)) {
-    throw new Error('input must be array');
+    throw new Error('input must be an array');
   }
   return arr.map((number) => {
     const hex = number.toString(16).toUpperCase();
@@ -574,7 +574,7 @@ function getMaxItems(arr, n) {
  */
 function findCommonElements(arr1, arr2) {
   if (!Array.isArray(arr1) || !Array.isArray(arr2)) {
-    throw new Error('input must be two arrays');
+    throw new Error('input must be an arrays');
   }
   return arr1.filter((element) => arr2.includes(element));
 }
@@ -624,7 +624,7 @@ function findLongestIncreasingSubsequence(nums) {
  */
 function propagateItemsByPositionIndex(arr) {
   if (!Array.isArray(arr)) {
-    throw new Error('input must be array');
+    throw new Error('input must be an array');
   }
   return arr.flatMap((item, value) => Array(value + 1).fill(item));
 }
@@ -667,7 +667,7 @@ function shiftArray(arr, n) {
  */
 function sortDigitNamesByNumericOrder(arr) {
   if (!Array.isArray(arr)) {
-    throw new Error('input must be array');
+    throw new Error('input must be an array');
   }
   const digits = {
     zero: 0,
@@ -706,7 +706,7 @@ function sortDigitNamesByNumericOrder(arr) {
  */
 function swapHeadAndTail(arr) {
   if (!Array.isArray(arr)) {
-    throw new Error('input must be array');
+    throw new Error('input must be an array');
   }
 
   const midIndex = Math.floor(arr.length / 2);
