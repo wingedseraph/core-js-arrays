@@ -20,8 +20,11 @@
  *    getIntervalArray(0, 100) => [ 0, 1, 2, ..., 100 ]
  *    getIntervalArray(3, 3) => [ 3 ]
  */
-function getIntervalArray(/* start, end */) {
-  throw new Error('Not implemented');
+function getIntervalArray(start, end) {
+  if (start > end) {
+    throw new Error('end is < than start');
+  }
+  return Array.from({ length: end - start + 1 }, (_, index) => start + index);
 }
 
 /**
@@ -37,9 +40,19 @@ function getIntervalArray(/* start, end */) {
  *    sumArrays([10, 20, 30], [5, 10, 15]) => [15, 30, 45]
  *    sumArrays([-1, 0, 1], [1, 2, 3, 4]) => [0, 2, 4, 4]
  */
-function sumArrays(/* arr1, arr2 */) {
-  throw new Error('Not implemented');
+function sumArrays(arr1, arr2) {
+  if (!Array.isArray(arr1) || !Array.isArray(arr2)) {
+    throw new Error('both inputs must be arrays');
+  }
+  const maxLength = Math.max(arr1.length, arr2.length);
+
+  return Array.from(
+    { length: maxLength },
+    (_, index) => (arr1[index] || 0) + (arr2[index] || 0)
+  );
 }
+// TODO: delete debug
+console.log(sumArrays([1, 2, 3], [4, 5, 6]));
 
 /**
  * Returns an index of the specified element in array or -1 if element is not found.
@@ -53,8 +66,11 @@ function sumArrays(/* arr1, arr2 */) {
  *    findElement(['Array', 'Number', 'string'], 'Date') => -1
  *    findElement([0, 1, 2, 3, 4, 5], 5) => 5
  */
-function findElement(/* arr, value */) {
-  throw new Error('Not implemented');
+function findElement(arr, value) {
+  if (!Array.isArray(arr)) {
+    throw new Error('must be array');
+  }
+  return arr.indexOf(value);
 }
 
 /**
@@ -71,8 +87,11 @@ function findElement(/* arr, value */) {
  *    findAllOccurrences([ null, undefined, null ], null) => 2
  *    findAllOccurrences([ true, 0, 1, 'true' ], true) => 1
  */
-function findAllOccurrences(/* arr, item */) {
-  throw new Error('Not implemented');
+function findAllOccurrences(arr, item) {
+  if (!Array.isArray(arr)) {
+    throw new Error('must be array');
+  }
+  return arr.filter((elem) => elem === item).length;
 }
 
 /**
@@ -87,8 +106,11 @@ function findAllOccurrences(/* arr, item */) {
  *    removeFalsyValues([ 1, 2, 3, 4, 5, 'false' ]) => [ 1, 2, 3, 4, 5, 'false' ]
  *    removeFalsyValues([ false, 0, NaN, '', undefined ]) => [ ]
  */
-function removeFalsyValues(/* arr */) {
-  throw new Error('Not implemented');
+function removeFalsyValues(arr) {
+  if (!Array.isArray(arr)) {
+    throw new Error('must be array');
+  }
+  return arr.filter((elem) => Boolean(elem));
 }
 
 /**
@@ -101,10 +123,14 @@ function removeFalsyValues(/* arr */) {
  *    getStringsLength([ '', 'a', 'bc', 'def', 'ghij' ]) => [ 0, 1, 2, 3, 4 ]
  *    getStringsLength([ 'angular', 'react', 'ember' ]) => [ 7, 5, 5 ]
  */
-function getStringsLength(/* arr */) {
-  throw new Error('Not implemented');
+function getStringsLength(arr) {
+  if (!Array.isArray(arr)) {
+    throw new Error('must be array');
+  }
+  return arr.map((str) => str.length);
 }
-
+// TODO: delete debug
+console.log(getStringsLength(['angular', 'react', 'ember']));
 /**
  * Returns the average of all items in the specified array of numbers.
  * The result should be rounded to two decimal places.
@@ -119,8 +145,13 @@ function getStringsLength(/* arr */) {
  *   getAverage([ 1, 10, 100, 1000 ])  => 277,75
  *   getAverage([ 2, 3, 3 ])  => 2,67
  */
-function getAverage(/* arr */) {
-  throw new Error('Not implemented');
+function getAverage(arr) {
+  if (!Array.isArray(arr) || arr.length === 0) {
+    return 0;
+  }
+  const average = arr.reduce((acc, num) => acc + num, 0) / arr.length;
+
+  return Math.round(average * 100) / 100;
 }
 
 /**
@@ -133,8 +164,11 @@ function getAverage(/* arr */) {
  *    isSameLength(['orange', 'banana', 'cherry']) => true
  *    isSameLength(['cat', 'dog', 'elephant']) => false
  */
-function isSameLength(/* arr */) {
-  throw new Error('Not implemented');
+function isSameLength(arr) {
+  if (!Array.isArray(arr)) {
+    throw new Error('input must array');
+  }
+  return arr.every((str) => str.length === arr[0].length);
 }
 
 /**
