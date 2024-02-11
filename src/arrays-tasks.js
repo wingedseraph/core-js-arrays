@@ -51,8 +51,6 @@ function sumArrays(arr1, arr2) {
     (_, index) => (arr1[index] || 0) + (arr2[index] || 0)
   );
 }
-// TODO: delete debug
-console.log(sumArrays([1, 2, 3], [4, 5, 6]));
 
 /**
  * Returns an index of the specified element in array or -1 if element is not found.
@@ -129,8 +127,6 @@ function getStringsLength(arr) {
   }
   return arr.map((str) => str.length);
 }
-// TODO: delete debug
-console.log(getStringsLength(['angular', 'react', 'ember']));
 /**
  * Returns the average of all items in the specified array of numbers.
  * The result should be rounded to two decimal places.
